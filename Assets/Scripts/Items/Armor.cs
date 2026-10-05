@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Armor : Item
 {
-    public override void UseItem()
+    public override void UseItemOn(Item heldItem)
     {
-        Debug.Log("You tried to use the armor, " + Name + "!");
+        Debug.Log("You tried to use " + heldItem.Name + " on the armor, " + Name + "!");
     }
 
     public override void PickupItem()

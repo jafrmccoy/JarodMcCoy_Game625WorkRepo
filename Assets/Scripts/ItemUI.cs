@@ -13,7 +13,7 @@ public class ItemUI : MonoBehaviour
     {
         if (_itemInSlot != null)
         {
-            _itemInSlot.UseItem();
+            _itemInSlot.PickupItem();
         }
     }
 }

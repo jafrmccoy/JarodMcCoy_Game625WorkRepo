@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SetPiece : Item
 {
-    public override void UseItem()
+    public override void UseItemOn(Item heldItem)
     {
-        Debug.Log("You tried to use the set piece, " + Name + "! (stupid lol)");
+        Debug.Log("You tried to use " + heldItem.Name + " on the set piece, " + Name);
     }
 
     public override void PickupItem()

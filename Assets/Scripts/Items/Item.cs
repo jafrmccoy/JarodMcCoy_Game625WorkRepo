@@ -22,12 +22,12 @@ public abstract class Item : MonoBehaviour
     public Sprite Sprite { get { return _sprite; } }
 
     /// <summary>
-    /// Attempts to use the item.
+    /// Attempts to use the item in the player's hand on this item.
     /// </summary>
-    public abstract void UseItem();
+    public abstract void UseItemOn(Item heldItem);
 
     /// <summary>
-    /// Attempts to put the item into the player's inventory.
+    /// Attempts to put the item into the player's hand.
     /// </summary>
     public abstract void PickupItem();
 
