@@ -41,4 +41,15 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public abstract Color GetGlowColor();
+
+    /// <summary>
+    /// Hides the item's original game object when placed in inventory.
+    /// </summary>
+    public void HideGameObject()
+    {
+        if (transform.gameObject != null)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

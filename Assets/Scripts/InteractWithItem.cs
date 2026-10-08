@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InteractWithItem : MonoBehaviour
@@ -11,6 +12,8 @@ public class InteractWithItem : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
         Ray ray = _mainCamera.ScreenPointToRay(mousePosition);

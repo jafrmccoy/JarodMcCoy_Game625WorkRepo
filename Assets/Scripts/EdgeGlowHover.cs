@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Outline))]
@@ -37,6 +38,8 @@ public class EdgeGlowHover : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
         Ray ray = _mainCamera.ScreenPointToRay(mousePosition);

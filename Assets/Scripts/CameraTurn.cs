@@ -19,6 +19,20 @@ public class CameraTurn : MonoBehaviour
 
     public static CameraTurn Instance;
 
+    private bool _menuOpen;
+
+    private void OnEnable()
+    {
+        MenuManager.InventoryOpened += OnMenuOpened;
+        MenuManager.InventoryClosed += OnMenuClosed;
+    }
+
+    private void OnDisable()
+    {
+        MenuManager.InventoryOpened -= OnMenuOpened;
+        MenuManager.InventoryClosed -= OnMenuClosed;
+    }
+
     private void Start()
     {
         if (Instance != null)
@@ -33,21 +47,25 @@ public class CameraTurn : MonoBehaviour
         _currentYangle = transform.localEulerAngles.y;
         _targetYAngle = _currentYangle;
         _turnCoroutine = null;
+        _menuOpen = false;
     }
 
     private void Update()
     {
-        if (turnRight.action.WasPressedThisFrame())
+        if (!_menuOpen)
         {
-            //turn right
-            _targetYAngle += 90f;
-            StartTurn();
-        }
-        if (turnLeft.action.WasPressedThisFrame())
-        {
-            //turn left
-            _targetYAngle -= 90f;
-            StartTurn();
+            if (turnRight.action.WasPressedThisFrame())
+            {
+                //turn right
+                _targetYAngle += 90f;
+                StartTurn();
+            }
+            if (turnLeft.action.WasPressedThisFrame())
+            {
+                //turn left
+                _targetYAngle -= 90f;
+                StartTurn();
+            }
         }
     }
 
@@ -79,5 +97,15 @@ public class CameraTurn : MonoBehaviour
         transform.localRotation = Quaternion.Euler(transform.eulerAngles.x, _targetYAngle, transform.localEulerAngles.z);
         _isTurning = false;
         _turnCoroutine = null;
+    }
+
+    private void OnMenuOpened()
+    {
+        _menuOpen = true;
+    }
+
+    private void OnMenuClosed()
+    {
+        _menuOpen = false;
     }
 }
