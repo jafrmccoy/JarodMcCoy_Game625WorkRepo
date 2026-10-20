@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0315d429af49ed438e28a22dbb3e41f, type: 3}
+  m_Name: Red Slime
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyType
+  _parentType: {fileID: 11400000, guid: 18f53aebb84f9b543b13d0eb1409665c, type: 2}
+  _name: Red Sime
+  _health: 0
+  _attackDamage: 0
+  _sprite: {fileID: 2111151676, guid: 2f41c405fe0e09f46b710ef3c8bb4db2, type: 3}
