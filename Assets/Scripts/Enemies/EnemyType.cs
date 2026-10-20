@@ -10,23 +10,6 @@ public class EnemyType : ScriptableObject
     [SerializeField] private int _attackDamage;
     [SerializeField] private Sprite _sprite;
 
-    public EnemyType (EnemyType parent, string name, int maxHealth, int attackDamage, Sprite sprite)
-    {
-        _name = name;
-
-        if (parent != null)
-        {
-            if (maxHealth == 0) { _health = parent.GetHealth(); }
-            else { _health = maxHealth; }
-            
-            if (attackDamage == 0) { _attackDamage = parent.GetAttackDamage(); }
-            else { _attackDamage = attackDamage; }
-            
-            if (sprite == null) { _sprite = parent.GetSprite(); }
-            else { _sprite = sprite; }
-        }
-    }
-
     public string GetName() { return _name; }
     public int GetHealth()
     {
